@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+<head>
+    <title>Bosh sahifa</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <header><a href="{% url 'home' %}">blog sahifa</a> </header>
+<div>
+    {% block content %}
+    {% endblock content %}
+</div>
+</body>
+</html>
