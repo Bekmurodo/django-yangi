@@ -5,6 +5,6 @@ urlpatterns = [
     path("", homePageView, name="home"),
     path('news/', news_list, name="al_news_list"),
     path('news/<int:id>', news_detail, name="news_detail_page"),
-    path('contact-us/', contactPageView, name='contact_page')
+    path('contact/', contactPageView, name='contact_page')
 
 ]
