@@ -1,5 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import News, Category
+from .forms import ContactForm
+from django.views.generic import TemplateView
 
 
 # Create your views here.
@@ -26,14 +29,39 @@ def homePageView(request):
     }
 
     return render(request, 'news/home.html', context)
-def contactPageView(request):
-    context = {
 
-    }
-    return render(request, 'news/contact-us.html', context)
+class ContactPageView(TemplateView):
+    template_name = 'news/contact-us.html'
 
-def viewPage404(request):
-    context = {
+    def get(self, request, *args, **kwargs):
+        form = ContactForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'news/contact-us.html', context)
 
-    }
-    return render(request, '404.html', context)
+    def post(self, request, *args, **kwargs):
+        form = ContactForm(request.POST)
+        if request.method == 'POST' and form.is_valid():
+            form.save()
+            return HttpResponse("<h2> Biz bilan bo'glanganingiz uchun tashakkur!</h2>")
+        context = {
+            "form" : form
+        }
+
+        return render(request, 'news/contact-us', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
