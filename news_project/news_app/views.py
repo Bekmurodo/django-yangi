@@ -52,6 +52,8 @@ class ContactPageView(TemplateView):
         return render(request, 'news/contact-us', context)
 
 
+class Suhrob:
+    pass
 
 
 
