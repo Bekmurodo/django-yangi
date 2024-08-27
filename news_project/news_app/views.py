@@ -21,10 +21,10 @@ def news_detail(request, id):
     return render(request, "news/news_detail.html", context)
 
 def homePageView(request):
-    news = News.published.all()
+    news_list = News.published.all().order_by("-publish_time")
     categories = Category.objects.all()
     context = {
-        'news': news,
+        'news_list': news_list,
         'categories': categories
     }
 
@@ -52,8 +52,7 @@ class ContactPageView(TemplateView):
         return render(request, 'news/contact-us', context)
 
 
-class Suhrob:
-    pass
+
 
 
 
