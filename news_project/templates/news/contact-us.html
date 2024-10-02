@@ -1,11 +1,10 @@
 
 {% load static %}
-{% block title %} Biz bilan bo'glanish {% endblock title %}
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>NewsFeed</title>
+<title>{% block title %}Biz bilan bo'glanish{% endblock title %}</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -125,7 +124,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
           <div class="single_sidebar">
-            <h2><span>Popular Post</span></h2>
+            <h2><span>Ommabop</span></h2>
             <ul class="spost_nav">
               <li>
                 <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg' %}"> </a>
