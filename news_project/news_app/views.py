@@ -1,8 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
+
 from .models import News, Category
 from .forms import ContactForm
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
 
 
 # Create your views here.
@@ -108,4 +110,28 @@ class SportNewsView(ListView):
     def get_queryset(self):
         news = self.model.published.all().filter(category_id= 4)
         return news
+
+class NewsUpdateView(UpdateView):
+    model = News
+    fields = ['title', 'body', 'image', 'category', 'status']
+    template_name = 'crud/edit.html'
+
+class NewsDeleteView(DeleteView):
+    model = News
+    template_name = 'crud/delete.html'
+    success_url = reverse_lazy('home')
+
+class NewsCreateView(CreateView):
+    model = News
+    template_name = 'crud/create.html'
+    prepopulated_fields = {'slug': ('title',)}
+    fields = ('title', 'slug', 'image','body', 'status', 'category', 'publish_time')
+
+
+
+
+
+
+
+
 
