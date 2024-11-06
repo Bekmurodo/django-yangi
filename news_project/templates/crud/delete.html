@@ -1,0 +1,17 @@
+{% extends 'news/base.html' %}
+
+{% load static %}
+
+{% block title %} {{ news.title }} {% endblock title %}
+
+{% block content %}
+    <h2 class="text-center">Хотите удалить этот новост?</h2>
+    <form method="post">{% csrf_token %}
+    <p>{{ news.title | truncatewords:4 }}... Удалить этот новост?</p>
+    <div style="margin-20px">
+        <img src="{{ news.image.url }}">
+    </div>
+
+    <button type="submit" class="btn btn-danger ml-2">Удалить</button>
+    </form>
+{% endblock content %}
