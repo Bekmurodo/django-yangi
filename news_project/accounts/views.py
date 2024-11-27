@@ -2,7 +2,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
 
 from news_app.models import News
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
@@ -108,3 +107,7 @@ class NewsCreateView(OnlyLoggedSuperUser, CreateView):
     model = News
     template_name = 'crud/news_create.html'
     fields = ('title', 'slug', 'body', 'image', 'category', 'status')
+
+
+
+
