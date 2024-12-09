@@ -12,8 +12,8 @@ class SubscriptionForm(forms.Form):
     message = forms.CharField()
     email = forms.EmailField()
 
-class CommentForm(forms.Form):
+class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ['user', 'body']
+        fields = ['body']
