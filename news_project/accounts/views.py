@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
 
 from news_app.models import News
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
@@ -9,6 +9,7 @@ from django.views.generic import CreateView
 from django.views import View
 from django.urls import reverse_lazy
 from .models import Profile
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from news_project.custom_permissions import OnlyLoggedSuperUser
 
@@ -34,7 +35,10 @@ def user_login(request):
 
     return render(request, 'registration/login.html', {'form': form})
 
-
+def user_logout(request):
+    logout(request)
+    messages.success(request, "Siz shaxsiy muhitingizdan chiqdingiz!")  # Xabar qo'shildi
+    return redirect('login')  # Bosh sahifaga yo'naltiramiz
 def dashboard_view(request):
     user = request.user
     profil_info = Profile.objects.get(user=user)

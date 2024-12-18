@@ -1,0 +1,22 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Login sahifasi {% endblock title %}
+
+{% block content %}
+
+    <h3>Xush kelibsiz, {{ user.username.title }}</h3>
+    <h2>Siz haqingizdagi ma'lumotlar</h2>
+    <img src="{{ profile.photo.url }}" width="30%">
+    <h4>Tug'ulgan yilingiz: {{ profile.date_of_birth }}</h4>
+    <label>Username:</label> <input value="{{user.username}}" readonly> <br>
+    <label>Emailingiz:</label> <input value="{{user.email}}" readonly> <br>
+    <label>Ismingiz:</label> <input value="{{user.first_name}}" readonly placeholder="Ma'lumot kiritilmagan"> <br>
+    <label>Nasabingiz:</label> <input value="{{user.last_name}}" readonly placeholder="Ma'lumot kiritilmagan"> <br>
+    <label>Tug'ulgan kuningiz:</label> <input value="{{user.date_of_birth}}" readonly placeholder="Ma'lumot kiritilmagan">
+
+    <h4><a href="{% url 'password_change' %}" style="color:red">Parolni almashtirish</a> </h4>
+
+    <h3><a href="{% url 'logout' %}">Profildan chiqish</a></h3>
+
+{% endblock content %}

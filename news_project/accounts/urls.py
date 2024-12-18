@@ -2,12 +2,12 @@ from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView, \
     PasswordChangeView, PasswordChangeDoneView, \
     PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetCompleteView
-from .views import user_login, dashboard_view, user_register, SignUpView, edit_user, EditUserView, custom_logout
+from .views import user_login, dashboard_view, user_register, SignUpView, edit_user, EditUserView, user_logout
 
 urlpatterns = [
    # path('login/', user_login, name='login')
      path('login/', LoginView.as_view(), name='login'),
-     path('logout/', custom_logout, name='logout'),
+     path('logout/', user_logout, name='logout'),
      path('password-change/', PasswordChangeView.as_view(), name='password_change'),
      path('password-change-done/', PasswordChangeDoneView.as_view(), name='password_change_done'),
      path('password-reset/', PasswordResetView.as_view(), name='password_reset'),
