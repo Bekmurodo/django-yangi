@@ -161,7 +161,7 @@ class NewsCreateView(LoginRequiredMixin, CreateView):
     model = News
     template_name = 'crud/create.html'
     prepopulated_fields = {'slug': ('title',)}
-    fields = ('title', 'slug', 'image','body', 'status', 'category', 'publish_time')
+    fields = ('title', 'title_uz', 'title_en', 'title_ru', 'slug', 'image', 'body', 'body_uz', 'body_en', 'body_ru', 'status', 'category', 'publish_time')
 
 @login_required()
 @user_passes_test(lambda u:u.is_superuser)
