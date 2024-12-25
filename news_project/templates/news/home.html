@@ -51,11 +51,11 @@
             <h2><span>{% blocktrans %}Mahalliy {% endblocktrans %}</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
-                {% for mahaliy in mahalliy_xabarlar %}
+                {% for mahalliy in mahalliy_xabarlar %}
                   {% if forloop.first %}
                 <li>
-                  <figure class="bsbig_fig"> <a href="{{ mahaliy.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ mahaliy.image.url }}"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="{{ mahaliy.get_absolute_url }}">{{ mahaliy.title | truncatewords:5 }}</a> </figcaption>
+                  <figure class="bsbig_fig"> <a href="{{ mahalliy.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ mahalliy.image.url }}"> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{{ mahalliy.get_absolute_url }}">{{ mahalliy.title | truncatewords:5 }}</a> </figcaption>
                   </figure>
                 </li>
                   {% endif %}
