@@ -5,7 +5,7 @@ class ContactForm(forms.ModelForm):
 
     class Meta:
         model = Contact
-        fields = "name", "email", "text"
+        fields = ("name", "email", "text")
 
 class SubscriptionForm(forms.Form):
     subject = forms.CharField(max_length=100)
